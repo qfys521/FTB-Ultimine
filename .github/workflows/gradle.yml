@@ -9,9 +9,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "dev" ]
 
 jobs:
   build:
@@ -66,3 +66,19 @@ jobs:
       with:
         name: upload build file
         path: ./build/libs/*
+
+    - name: upload fabric
+      uses: actions/upload-artifact@v3
+      with:
+        name: upload build file
+        path: ./fabric/build/libs/*
+    - name: upload forge
+      uses: actions/upload-artifact@v3
+      with:
+        name: upload build file
+        path: ./forge/build/libs/*
+    - name: upload common
+      uses: actions/upload-artifact@v3
+      with:
+        name: upload build file
+        path: ./common/build/libs/*
